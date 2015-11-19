@@ -1,11 +1,18 @@
-// ========== Font-add ========== //
+// ========== Font-mixin ========== 
 
-@font-face {
-	font-family: 'RobotoRegular';
-	src: url('../fonts/RobotoRegular/RobotoRegular.eot'); 
-	src: url('../fonts/RobotoRegular/RobotoRegular.eot?#iefix') format('embedded-opentype'), 
-		 url('../fonts/RobotoRegular/RobotoRegular.woff2') format('woff2'), 
-		 url('../fonts/RobotoRegular/RobotoRegular.woff') format('woff'), 
-		 url('../fonts/RobotoRegular/RobotoRegular.ttf') format('truetype'); 
-		//url('../fonts/RobotoRegular/RobotoRegular.svg#svgFontName') format('svg'); 
+.include-custom-font(@family: arial, @weight: normal, @style: normal){
+	@font-face{
+		font-family: "@{family}";
+		src:url('../fonts/@{family}/@{family}.eot');
+		src:url('../fonts/@{family}/@{family}.eot?#iefix') format('embedded-opentype'),
+			url('../fonts/@{family}/@{family}.woff') format('woff'),
+			url('../fonts/@{family}/@{family}.ttf') format('truetype'),
+			url('../fonts/@{family}/@{family}.svg#@{family}') format('svg');
+		font-weight: @weight;
+		font-style: @style;
+	}
 }
+
+// ========== Font-add ========== 
+
+.include-custom-font(RobotoRegular); 
